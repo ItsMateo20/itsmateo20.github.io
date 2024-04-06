@@ -1,6 +1,27 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      body, html, iframe {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        fetch('https://raw.githack.com/ItsMateo20/ItsMateo20/master/README.md')
+          .then(response => response.text())
+          .then(markdown => {
+            document.getElementById('markdown').innerHTML = marked(markdown);
+          });
+      };
+    </script>
+  </head>
   <body>
-    <iframe src="https://raw.githack.com/ItsMateo20/ItsMateo20/master/README.md" title="Readme.md" alt="Readme.md"></iframe>
+    <div id="markdown"></div>
   </body>
 </html>
